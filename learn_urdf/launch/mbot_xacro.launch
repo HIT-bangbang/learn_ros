@@ -1,0 +1,16 @@
+<launch>
+    <param name="robot_description" command="$(find xacro)/xacro $(find learn_urdf)/urdf/mbot.xacro" />
+
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find learn_urdf)/rviz/config.rviz" />
+    <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" output="screen" />
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen" />
+    <!--打开图形化控制节点-->
+    <node pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" name="joint_state_publisher_gui" />
+    
+<node name="arbotix" pkg="arbotix_python" type="arbotix_driver" output="screen">
+        <rosparam file="$(find learn_urdf)/config/arbotix.yaml" command="load" />
+        <param name="sim" value="true" />
+</node>
+
+
+</launch>

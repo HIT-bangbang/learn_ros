@@ -1,0 +1,11 @@
+<launch>
+    <param name="robot_description" command="$(find xacro)/xacro $(find learn_urdf)/urdf/gazebo/mbot_kinect_gazebo.xacro" />
+    <!--include file="$(find gazebo_ros)/launch/empty_world.launch" /-->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find learn_urdf)/world/ROS-Academy.world" />
+    </include>
+    <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" output="screen" />
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen" />
+    <node pkg="gazebo_ros" type="spawn_model" name="model" args="-urdf -model mycar -param robot_description"  />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher" args="0 0 0 -1.57 0 -1.57 /base_link /support_depth" />
+</launch>

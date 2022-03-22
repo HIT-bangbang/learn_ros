@@ -1,0 +1,17 @@
+<robot name="my_car_camera" xmlns:xacro="http://wiki.ros.org/xacro">
+    <xacro:include filename="mbot_head_gazebo.xacro" />
+    <xacro:include filename="mbot_base_gazebo.xacro" />
+    <xacro:include filename="kinect_gazebo.xacro" />
+
+<!--
+    <xacro:include filename="mbot_camera_gazebo.xacro" />
+    <xacro:include filename="mbot_laser_gazebo.xacro" />
+    -->
+    <xacro:include filename="move.xacro" />
+    <!--
+    <xacro:include filename="mbot_sensor_laser_gazebo.xacro" />
+    <xacro:include filename="mbot_sensor_camera_gazebo.xacro" />
+    -->
+    <xacro:include filename="mbot_sensor_kinect_gazebo.xacro" />
+
+</robot>
