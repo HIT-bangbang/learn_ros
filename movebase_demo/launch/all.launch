@@ -1,0 +1,15 @@
+<launch>
+    <!-- 设置地图的配置文件 -->
+    <arg name="map" default="nav.yaml" />
+
+    <!-- 启动AMCL节点 -->
+    <include file="$(find amcl_demo)/launch/amcl.launch" />
+    <!-- 运行地图服务器，并且加载设置的地图，因为amcl的launch里面已经包含了，此处注释掉-->
+    <!--node name="map_server" pkg="map_server" type="map_server" args="$(find gmapping_demo)/map/$(arg map)"/-->
+    <!-- 运行move_base节点 -->
+    <include file="$(find movebase_demo)/launch/movebase.launch" />
+    <!-- 运行rviz -->
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find movebase_demo)/rviz/movebase.rviz" />
+    <!--node pkg="rviz" type="rviz" name="rviz"/-->
+
+</launch>
