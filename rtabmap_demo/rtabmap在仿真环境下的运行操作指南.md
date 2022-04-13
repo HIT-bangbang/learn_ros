@@ -1,4 +1,10 @@
 # rtabmap在仿真环境下的运行操作指南[melodic为例]
+
+# 本功能包中修改了
+
+  <arg name="frame_id"                default="base_footprint"/> 
+修改了frame为base_footprint，原本为camera_link
+
 ### 操作过程
 ##### 1. 根据自己的ROS版本,安装对应的rtabmap-ros
 

@@ -156,7 +156,7 @@ move.xacro文件如下：
 请注意：
 mbot_kinect_gazebo.launch文件中最后一行：
 ```xml
-        <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher" args="0 0 0 -1.57 0 -1.57 /base_link /support_depth" />
+        <node pkg="tf2_ros" type="static_transform_publisher" name="static_transform_publisher" args="0 0 0 -1.57 0 -1.57 /camera /support_depth" />
 ```
 以及修改了framename这个标签（support_depth原本是camera，和相机一致）
 ```xml
